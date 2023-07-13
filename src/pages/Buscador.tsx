@@ -5,6 +5,7 @@ import { gerarNomeDocumentoAleatorio } from '../functions/gerarNomeDocumento';
 import {loading} from '../functions/loading'
 import Loading from '../components/Loading';
 
+
 type Registro = {
   nomeDocumento: string;
   sistemaOrigem: string;
@@ -35,7 +36,7 @@ function Buscador() {
     for (let i = 0; i < qntdRegistros; i++) {
       const nomeDocumento = gerarNomeDocumentoAleatorio();
       const sistemaOrigem: string = 'HUTZ';
-      const linkDownload: string = '../files/teste.txt';
+      const linkDownload: string = 'https://www.africau.edu/images/default/sample.pdf';
       await novosRegistros.push({ nomeDocumento, sistemaOrigem, linkDownload });
     }
 

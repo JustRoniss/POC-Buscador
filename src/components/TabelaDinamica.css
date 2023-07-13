@@ -1,0 +1,17 @@
+.tabela{
+    width: 100%;
+    border: 1px solid #535bf2;
+  }
+  .tabela th{
+    
+  }
+
+  .tabela tr{
+    
+  }
+
+  .tabela td{
+    border: 1px solid #535bf2;
+    text-align: start;
+
+  }
