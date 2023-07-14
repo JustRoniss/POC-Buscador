@@ -44,7 +44,7 @@ function TabelaDinamica({ registros }: Props) {
         </Table>
       </div>
       <div>
-      <button onClick={() => exportToExcel(registros)}>Baixar resultado</button>
+      <button className="botao_exportar" onClick={() => exportToExcel(registros)}>Baixar resultado</button>
       </div>
     </div>
   );

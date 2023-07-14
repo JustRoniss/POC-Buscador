@@ -1,17 +1,38 @@
 .tabela{
     width: 100%;
     border: 1px solid #535bf2;
-  }
-  .tabela th{
-    
-  }
+}
 
-  .tabela tr{
+.tabela th{
     
-  }
+}
 
-  .tabela td{
+.tabela tr{
+    
+}
+
+.tabela td{
     border: 1px solid #535bf2;
     text-align: start;
+
+}
+
+.botao_exportar {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(83,91,242,1) 79%, rgba(0,212,255,1) 100%);
+    display: block;
+    margin: 1em auto 0 auto;  
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.1em 1.0em;
+    font-size: 0.8em;
+    font-weight: bolder;
+    font-family: inherit;
+    cursor: pointer;
+    color: white;
+  }
+
+  .botao_exportar:hover{
+    
+    border: 3px solid #535bf2;
 
   }
