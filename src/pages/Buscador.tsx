@@ -18,7 +18,6 @@ function Buscador() {
   const [registros, setRegistros] = useState<Registro[]>([]);
   const [pesquisado, setPesquisado] = useState(false); 
   const [nomeFornecedor, setNomeFornecedor] = useState('');
-
   const [isLoading, setIsLoading] = useState(false);
 
    const handlePesquisar = async (event: React.FormEvent<HTMLFormElement>) => {
