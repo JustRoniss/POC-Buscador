@@ -4,6 +4,8 @@ import TabelaDinamica from '../components/TabelaDinamica';
 import { gerarNomeDocumentoAleatorio } from '../functions/gerarNomeDocumento';
 import {loading} from '../functions/loading'
 import Loading from '../components/Loading';
+import Search from 'antd/es/input/Search';
+import { Space } from 'antd';
 
 
 type Registro = {
@@ -50,7 +52,13 @@ function Buscador() {
       {/* Parte de receber dado */}
       <div>
         <form onSubmit={handlePesquisar}>
-          <input
+
+        <Space.Compact>
+          <Search style={{ width: '440px' }} placeholder="Digite o nome do fornecedor" onChange={(e) => setNomeFornecedor(e.target.value)} value={nomeFornecedor} size="large" enterButton /> 
+        </Space.Compact>
+
+
+          {/* <input
             id='input_fornecedor'
             type='text'
             name='nomeFornecedor'
@@ -61,7 +69,7 @@ function Buscador() {
           <button className='botao_pesquisar' type='submit' disabled={nomeFornecedor.length < 4}>
             Pesquisar
           </button>
-          <p id='teste'></p>
+          <p id='teste'></p> */}
         </form>
       </div>
       {/* Renderização da lista */}
