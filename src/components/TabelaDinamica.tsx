@@ -1,54 +1,67 @@
-import Table from "react-bootstrap/Table";
-import './TabelaDinamica.css'
+import { Space, Table } from "antd";
+import { DownloadOutlined } from "@ant-design/icons";
+import { Button } from "antd";
+
+import "./TabelaDinamica.css";
 import { exportToExcel } from "../functions/exportToExcel";
 
-type Registro = {
+interface Registro {
   nomeDocumento: string;
   sistemaOrigem: string;
   linkDownload: string;
-};
-
-type Props = {
-  registros: Registro[];
-};
-
-function TabelaDinamica({ registros }: Props) {
-  return (
-    <div>
-      <div>
-        <Table id="tabela-dinamica" className="tabela" striped bordered hover>
-          <thead>
-            <tr>
-              <th>Nome do Documento</th>
-              <th>Sistema de origem</th>
-              <th>Link para download</th>
-            </tr>
-          </thead>
-          <tbody>
-            {registros.map((registro, index) => (
-              <tr key={index}>
-                <td>{registro.nomeDocumento}</td>
-                <td>{registro.sistemaOrigem}</td>
-                <td>
-                  <a
-                    target="_blank"
-                    href={registro.linkDownload}
-                    download={registro.linkDownload}
-                  >
-                    Download
-                  </a>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
-      </div>
-      <div>
-      <button className="botao_exportar" onClick={() => exportToExcel(registros)}>Baixar resultado</button>
-      </div>
-    </div>
-  );
 }
 
-export default TabelaDinamica;
+interface Props {
+  registros: Registro[];
+}
 
+const TabelaDinamica: React.FC<Props> = ({ registros }) => {
+  let linkDownlaod = registros.find((registro) => registro.linkDownload);
+  const linkValue = linkDownlaod?.linkDownload;
+
+  const columns = [
+    {
+      title: "Nome do documento",
+      dataIndex: "nomeDocumento",
+      key: "nomeDocumento",
+    },
+    {
+      title: "Sistema de origem",
+      dataIndex: "sistemaOrigem",
+      key: "sistemaOrigem",
+    },
+    {
+      title: "Link Download",
+      dataIndex: "linkDownload",
+      key: "linkDownload",
+      render: () => (
+        <a href={linkValue}>
+          <Button type="link" size="small">
+            Baixar PDF
+          </Button>
+        </a>
+      ),
+    },
+  ];
+
+  return (
+    <div>
+      <Table
+        dataSource={registros}
+        columns={columns}
+        pagination={false}
+        bordered
+      />
+      <Button
+        type="primary"
+        icon={<DownloadOutlined />}
+        size={"large"}
+        onClick={() => exportToExcel(registros)}
+        style={{ marginTop: "1rem" }}
+      >
+        Baixar resultado
+      </Button>
+    </div>
+  );
+};
+export default TabelaDinamica;
