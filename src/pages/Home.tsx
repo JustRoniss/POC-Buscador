@@ -2,6 +2,7 @@ import { ReactElement } from "react";
 import "./Home.css";
 import logoHolmes from "/home/ronis/Projects/POC-Buscador/src/assets/logoHolmesConvertida.svg";
 import { Link } from "react-router-dom";
+import { Button } from "antd";
 
 
 
@@ -12,9 +13,11 @@ function App(): ReactElement {
       <h1 className="titulo">POC - Buscador</h1>
       <p className="texto">Bem-vindo 😀</p>
 
-      <button className="botao">
+      <Button type="default">
         <Link to="/buscador">Acessar tela de busca</Link>
-      </button>
+      </Button>
+
+
     </div>
   );
 }

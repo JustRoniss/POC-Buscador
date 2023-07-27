@@ -7,7 +7,6 @@ import Buscador from './pages/Buscador.tsx'
 import Home from './pages/Home.tsx'
 
 
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -16,8 +15,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path='/buscador' element={<Buscador />} />
       </Routes>
     </BrowserRouter>
-
-
-
   </React.StrictMode>,
 )
