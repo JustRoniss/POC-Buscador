@@ -5,7 +5,8 @@ import { gerarNomeDocumentoAleatorio } from "../functions/gerarNomeDocumento";
 import { loading } from "../functions/loading";
 import Loading from "../components/Loading";
 import Search from "antd/es/input/Search";
-import { Space, Input, Form, Alert } from "antd";
+import { Space, Input, Form, Alert, notification } from "antd";
+
 
 type Registro = {
   nomeDocumento: string;
@@ -21,7 +22,16 @@ function Buscador() {
 
   const onSearch = (value: string) => {
     if (value.length < 4) {
-      alert("Digite ao menos 4 carecteres");
+      notification.open( {
+        message: 'Erro na pesquisa',
+        description: 'A pesquisa deve ter pelo menos 4 caracteres.',
+        type: 'error',
+        style: {
+          width: 300,
+        },
+        placement: 'bottomRight'
+
+      });
     } else {
       handlePesquisar();
     }
